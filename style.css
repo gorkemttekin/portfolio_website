@@ -1,15 +1,16 @@
 :root {
-  /* Mid-century palette on a walnut base */
+  /* Mid-century palette on a walnut base. Accents are from Wada Sanzo's
+     Dictionary of Color Combinations: Orange Yellow, English Red, Oil Green, Cerulian Blue */
   --bg: #1e1812;
   --surface: #271f17;
   --border: #3a2f24;
   --text: #f0e6d2;
   --body: #d8ccb4;
   --muted: #a8987d;
-  --mustard: #e3a82b;
-  --orange: #d9622b;
-  --olive: #9aa347;
-  --blue: #6e9bb5;
+  --mustard: #fcb315;
+  --orange: #d96629;
+  --olive: #819238;
+  --blue: #0093a5;
   --font: "Jost", "Futura", "Avenir Next", system-ui, sans-serif;
 }
 
@@ -43,8 +44,8 @@ a { color: inherit; text-decoration: none; }
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(30, 24, 18, 0.85);
-  backdrop-filter: blur(10px);
+  /* Solid, not frosted: a blur smeared the hero's colored stripes into the bar */
+  background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
 .nav-inner {
@@ -59,23 +60,23 @@ a { color: inherit; text-decoration: none; }
 .brand { display: flex; align-items: flex-end; gap: 3px; height: 22px; }
 .brand i {
   width: 5px;
-  height: 12px;
+  height: 9px;
   border-radius: 1px;
   background: var(--c);
-  opacity: .55;
-  transition: height .45s cubic-bezier(.2, .8, .2, 1), opacity .45s;
+  transition: height .45s cubic-bezier(.2, .8, .2, 1);
 }
 .brand i:nth-child(1) { --c: var(--mustard); }
 .brand i:nth-child(2) { --c: var(--orange); }
 .brand i:nth-child(3) { --c: var(--olive); }
 .brand i:nth-child(4) { --c: var(--blue); }
-.brand i.on { height: 22px; opacity: 1; }
+/* Always full color (dimming turned green and teal gray); the current section's stripe is tall */
+.brand i.on { height: 22px; }
 /* Hover: a short staggered wave through the stripes */
 .logo:hover .brand i { animation: brand-wave .6s ease-in-out; }
 .logo:hover .brand i:nth-child(2) { animation-delay: .07s; }
 .logo:hover .brand i:nth-child(3) { animation-delay: .14s; }
 .logo:hover .brand i:nth-child(4) { animation-delay: .21s; }
-@keyframes brand-wave { 50% { transform: scaleY(1.35); opacity: 1; } }
+@keyframes brand-wave { 50% { transform: scaleY(1.35); } }
 .brand i { transform-origin: bottom; }
 .logo-name { transition: color .2s; }
 .logo:hover .logo-name { color: var(--mustard); }
@@ -135,7 +136,7 @@ h1 {
 }
 .btn:hover { border-color: var(--muted); }
 .btn.primary { background: var(--mustard); border-color: var(--mustard); color: var(--bg); }
-.btn.primary:hover { background: #eebb4b; border-color: #eebb4b; }
+.btn.primary:hover { background: #fdc44a; border-color: #fdc44a; }
 
 /* Racing stripes closing the hero */
 .stripes { display: grid; gap: 4px; }
@@ -162,7 +163,7 @@ h1 {
   border: 1px solid var(--border);
   border-radius: 14px;
   padding: 10px 10px 18px;
-  box-shadow: 0 30px 60px -30px rgba(227, 168, 43, 0.25);
+  box-shadow: 0 30px 60px -30px rgba(252, 179, 21, 0.25);
 }
 #screen {
   display: block;

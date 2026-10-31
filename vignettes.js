@@ -4,8 +4,8 @@
 (() => {
   const P = {
     walnut: "#1e1812", brown: "#3a2f24", umber: "#6b5640", taupe: "#a8987d", cream: "#f0e6d2",
-    mustard: "#e3a82b", ochre: "#a8741c", orange: "#d9622b", rust: "#8f3f1c",
-    olive: "#9aa347", moss: "#5f6630", blue: "#6e9bb5", navy: "#3d5d70",
+    mustard: "#fcb315", ochre: "#ad7a12", orange: "#d96629", rust: "#8f431b",
+    olive: "#819238", moss: "#556025", blue: "#0093a5", navy: "#005b66",
   };
   const SPRITE_COLORS = { o: P.orange, r: P.rust, w: P.walnut, c: P.cream, m: P.mustard, u: P.umber, t: P.taupe, b: P.brown };
   const DURATION = 3.2; // seconds, for one-shot scenes
