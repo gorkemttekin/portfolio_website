@@ -1,545 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
-  </head>
-  <body>
-    <nav id="desktop-nav">
-      <div class="logo">Görkem Tekin</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#hobbies">Hobbies</a></li>
-          <li><a href="#contact">Contact</a></li>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Görkem Tekin — Visual Computing</title>
+  <meta name="description" content="Görkem Tekin — M.Sc. Computational Modeling and Simulation at TU Dresden. 3D reconstruction, synthetic data and simulation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="logo">gt<span>.</span></a>
+      <nav>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+        <button class="lang" id="lang-toggle" type="button" aria-label="Switch language">
+          <span data-lang="en">EN</span> / <span data-lang="de">DE</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="where" data-i18n="hero.where">Dresden, Germany</p>
+          <h1>Görkem Tekin</h1>
+          <p class="role" data-i18n="hero.role">Visual computing, 3D reconstruction and simulation</p>
+          <p class="lead" data-i18n="hero.lead">Master's student in Computational Modeling and Simulation at TU Dresden. At Fraunhofer IVI, I build simulation environments and maps with Unreal Engine and CARLA.</p>
+          <div class="actions">
+            <a class="btn primary" href="#projects" data-i18n="hero.cta">View projects</a>
+            <a class="btn" href="Goerkem_Tekin_Resume.pdf" download="Görkem_Tekin_Resume.pdf" data-i18n="hero.cv">Download CV</a>
+          </div>
+        </div>
+        <div class="monitor" aria-hidden="true">
+          <div class="bezel">
+            <canvas id="screen" width="200" height="125"></canvas>
+            <span class="led"></span>
+          </div>
+          <div class="neck"></div>
+          <div class="base"></div>
+          <canvas id="desk" class="desk" width="200" height="30"></canvas>
+        </div>
+      </div>
+      <div class="stripes" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 data-i18n="nav.about">About</h2>
+        <div class="about-grid">
+          <div>
+            <p class="about-text" data-i18n="about.text">I'm a master's student in Computational Modeling and Simulation at TU Dresden, specializing in Visual Computing. My work sits where computer vision, graphics and simulation meet: reconstructing objects from touch and vision, generating synthetic data for perception, and building virtual environments for testing.</p>
+            <div class="stack">
+              <h3 class="label" data-i18n="about.languages">Languages</h3>
+              <ul class="tags">
+                <li>Python</li><li>C++</li><li>C#</li>
+              </ul>
+              <h3 class="label" data-i18n="about.tools">Tools</h3>
+              <ul class="tags">
+                <li>Unreal Engine</li><li>Unity</li><li>Blender</li><li>BlenderProc</li><li>ROS</li><li>CARLA</li><li>OpenDRIVE</li><li>OpenCV</li><li>VR</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <h3 class="label" data-i18n="about.edu">Education</h3>
+            <ul class="edu">
+              <li>
+                <strong>M.Sc. Computational Modeling and Simulation</strong>
+                <span>TU Dresden, <span data-i18n="about.focus">focus on Visual Computing</span></span>
+                <span class="years">2025 – 2027 <span data-i18n="about.expected">(expected)</span></span>
+              </li>
+              <li>
+                <strong>B.Sc. Computer Education and Educational Technology</strong>
+                <span>Boğaziçi University, Istanbul</span>
+                <span class="years">2020 – 2025</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 data-i18n="nav.experience">Experience</h2>
+        <ul class="projects">
+          <li class="project has-vignette" style="--c: var(--olive)">
+            <span class="mark quarter" aria-hidden="true"></span>
+            <div>
+              <p class="meta">Fraunhofer IVI, <span data-i18n="exp.type">working student</span></p>
+              <h3 data-i18n="exp.title">Map Creation and Simulation Engineering</h3>
+              <p class="dates" data-i18n="exp.dates">Since September 2026</p>
+              <p data-i18n="p3.text">Building simulation environments and maps in Unreal Engine and CARLA for virtual testing.</p>
+              <ul class="points">
+                <li data-i18n="p3.point1">Building photorealistic HD map environments for CARLA, from surveyed road data to a drivable simulation in Unreal Engine 4 with ASAM OpenDRIVE.</li>
+                <li data-i18n="p3.point2">Built a Python toolchain for HD map validation and repair that is now the standard import step for new maps.</li>
+              </ul>
+            </div>
+            <canvas class="vignette" data-scene="map" width="128" height="84" aria-hidden="true"></canvas>
+          </li>
+          <li class="project has-vignette" style="--c: var(--orange)">
+            <span class="mark half" aria-hidden="true"></span>
+            <div>
+              <p class="meta" data-i18n="p2.meta">ELBFLORACE Formula Student team</p>
+              <h3 data-i18n="p2.title">Autonomous Driving Software Engineer</h3>
+              <p class="dates" data-i18n="p2.dates">Since November 2025</p>
+              <p data-i18n="p2.text">Working on perception for a driverless race car ranked 5th in the Formula Student world rankings.</p>
+              <ul class="points">
+                <li data-i18n="p2.point1">Building a BlenderProc pipeline that generates annotated synthetic datasets, speeding up YOLO training for track and cone detection.</li>
+                <li data-i18n="p2.point2">Creating digital twins of race tracks and obstacles in Blender, using Python and C++ to test perception under varied conditions.</li>
+              </ul>
+            </div>
+            <canvas class="vignette" data-scene="racing" width="128" height="84" aria-hidden="true"></canvas>
+          </li>
         </ul>
       </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Görkem Tekin</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Project</a></li>
-          <li><a href="#hobbies" onclick="toggleMenu()">Hobbies</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img
-          src="./assets/new_profile_circle.png"
-          alt="Görkem Tekin Profile Picture"
-        />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Görkem Tekin</h1>
-        <p class="section__text__p2">Product Developer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assets/Görkem-Tekin-Resume.pdf', '_blank')"
-          >
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="My Linkedin Profile"
-            class="icon"
-            onclick="window.open('https://www.linkedin.com/in/goerkemtekin/', '_blank')"
-          />
-          <img
-            src="./assets/github.png"
-            alt="My GitHub Profile"
-            class="icon"
-            onclick="window.open('https://github.com/gorkemttekin', '_blank')"
-          />
-        </div>
-      </div>
     </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/about_me.png"
-            alt="profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="about-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>2+ years IT Instruction</p>
-              <p>1+ years Game Development</p>
-            </div>
-            <div class="about-container">
-              <img
-                src="./assets/graduation.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>
-                B.Sc. Computer Educational Technologies<br />Boğaziçi University
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 data-i18n="nav.projects">Projects</h2>
+        <ul class="projects">
+          <li class="project has-vignette" style="--c: var(--blue)">
+            <span class="mark circle" aria-hidden="true"></span>
+            <div>
+              <p class="meta" data-i18n="p1.meta">Research project</p>
+              <h3>Finding NeMO: Tactile Sensing &amp; 3D Object Reconstruction</h3>
+              <p data-i18n="p1.text">Reconstructing object geometry by combining touch readings from the DIGIT vision-based tactile sensor with visual observations, using NeMO for the 3D reconstruction.</p>
+              <p class="project-links">
+                <a href="https://github.com/lasr-lab/project-nemo-tactile-furkan-goerkem/tree/furkan-pipeline" target="_blank" rel="noopener">GitHub ↗</a>
+                <!-- TODO: report URL
+                <a href="TODO" target="_blank" rel="noopener" data-i18n="p1.report">Project report ↗</a>
+                -->
               </p>
             </div>
-          </div>
-          <div class="text-container">
-            <p>
-              Hello there, I'm Görkem. I am a senior student at Boğaziçi
-              University, majoring in Computer Educational Technologies. I am
-              interested in game development and am working on various projects
-              to develop myself in the field of educational game design with
-              Unity Game Engine. Additionally, I've designed IoT projects using
-              the ESP8266 development board. In my free time, I enjoy playing
-              the electric guitar, running with my runclub, visiting antique
-              markets to collect various vinyl records, and I have recently
-              started photography. For now, this is what you need to know about
-              me! Feel free to contact me for more information.
-            </p>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow Icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="skills-container">
-            <h2 class="experience-sub-title">Game Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Unity Game Engine</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Python</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>C#</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Blender</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>GarageBand</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
+            <canvas class="vignette" data-scene="tactile" width="128" height="84" aria-hidden="true"></canvas>
+          </li>
+          <li class="project upcoming has-vignette" style="--c: var(--mustard)">
+            <span class="mark ring" aria-hidden="true"></span>
+            <div>
+              <p class="meta"><span data-i18n="p4.meta">Research project</span> <span class="badge" data-i18n="p4.status">Upcoming</span></p>
+              <h3 data-i18n="p4.title">Real-time multi-view capture</h3>
+              <p data-i18n="p4.text">Evaluating the state of the art in real-time multi-view capture.</p>
             </div>
-          </div>
-          <div class="skills-container">
-            <h2 class="experience-sub-title">Instructional Design</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Curriculum Planning</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Learning Management Systems</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Multimedia Design Principles</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Articulate</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Learning Design Technologies</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>iMovie / Premiere Pro</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow Icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-    </section>
-    <section id="projects" style="position: relative">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <img
-              src="./assets/unity_project.png"
-              alt="project 1"
-              class="project-img"
-            />
-            <h2 class="experience-sub-title project-title">
-              Instructional Game
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://gorkemttekin.itch.io/geomancient-trip', '_blank')"
-              >
-                itch.io
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://docs.google.com/document/d/1iU7bQ4EYp4QMoxouaxFrJQSvEbd2Wjb2N23S9F2SGDM/edit?usp=sharing', '_blank')"
-                
-              >
-                Project Report
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <img
-              src="./assets/esp_yeni.png"
-              alt="project 2"
-              class="project-img"
-            />
-            <h2 class="experience-sub-title project-title">IoT Projects</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://drive.google.com/drive/folders/14CXAKzlM94t-YhneAP6T9FGAZVhvhz1V?usp=share_link:', '_blank')"
-              >
-                Project Folders
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://www.robotistan.com/nodemcu-iot-proje-gelistirme-seti', '_blank')"
-              >
-                My Kit
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <img src="./assets/dbms.png" alt="project 2" class="project-img" />
-            <h2 class="experience-sub-title project-title">
-              Database Management System
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://github.com/gorkemttekin/dbms_project/tree/main' , '_blank')"
-              >
-                GitHub
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://www.canva.com/design/DAFxpM6LJgY/jSyye0pmx-YsXf6pbszC3Q/edit?utm_content=DAFxpM6LJgY&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton', '_blank')"
-              >
-                Project Report
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <img
-              src="./assets/network.png"
-              alt="project 3"
-              class="project-img"
-            />
-            <h2 class="experience-sub-title project-title">
-              Computer Network Design
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://github.com/gorkemttekin/computer_network_design', '_blank')"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://drive.google.com/drive/folders/1vwuZBLMgSssDQDadIpzxDZZ4BGlvXzyA?usp=sharing', '_blank')"
-              >
-                Project Details 
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow Icon"
-        class="icon"
-        style="position: absolute; bottom: 2.5rem; right: -5rem"
-        onclick="location.href='./#hobbies'"
-      />
-    </section>
-    <section id="hobbies" style="position: relative">
-      <p class="section__text__p1">Check out My</p>
-      <h1 class="title">Hobbies</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <img
-              src="./assets/makina.png"
-              alt="project 1"
-              class="project-img"
-            />
-            <h2 class="experience-sub-title project-title">
-              Photography
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://drive.google.com/drive/folders/1PmWPjw-1VC10iw7OteSCA32S-NSY1npk' , '_blank')"
-              >
-                Photographs
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://kit.co/gorkemtekin/photography-kit', '_blank')"
-              >
-                My Gear
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <img
-              src="./assets/running.png"
-              alt="project 2"
-              class="project-img"
-            />
-            <h2 class="experience-sub-title project-title">Running</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://www.strava.com/athletes/146933401', '_blank')"
-              >
-                Strava
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://kit.co/gorkemtekin/running-kit', '_blank')"
-              >
-                My Gear
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <img src="./assets/vinyl.png" alt="project 2" class="project-img" />
-            <h2 class="experience-sub-title project-title">
-              Collecting Vinyl Records
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://www.discogs.com/user/gorkemtekin/collection', '_blank')"
-              >
-                Collection
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://lencopikap.com/product/ls-310-wd/', '_blank')"
-              >
-                Record Player
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <img
-              src="./assets/guitar.png"
-              alt="project 3"
-              class="project-img"
-            />
-            <h2 class="experience-sub-title project-title">
-              Playing Electric Guitar
-            </h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                
-              >
-                Coming Soon
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="window.open('https://kit.co/gorkemtekin/electric-guitar-kit', '_blank')"
-              >
-                My Gear
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow Icon"
-        class="icon"
-        style="position: absolute; bottom: 2.5rem; right: -5rem"
-        onclick="location.href='./#contact'"
-      />
-    </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p>
-            <a href="mailto:gorkemtekin24@gmail.com">gorkemtekin24@gmail.com</a>
-          </p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="linkedin icon"
-            class="icon contact-icon"
-          />
-          <p>
-            <a href="https://www.linkedin.com/in/goerkemtekin/">LinkedIn</a>
-          </p>
-        </div>
+            <canvas class="vignette" data-scene="multiview" width="128" height="84" aria-hidden="true"></canvas>
+          </li>
+        </ul>
       </div>
     </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#hobbies">Hobbies</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <p>Copyright &#169; 2024 Görkem Tekin. All Rights Reserved.</p>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 data-i18n="nav.contact">Contact</h2>
+        <p class="contact-lead" data-i18n="contact.lead">Always happy to talk about 3D vision, simulation and synthetic data.</p>
+        <a class="email" href="mailto:gorkemtekin24@gmail.com">gorkemtekin24@gmail.com</a>
+        <ul class="links">
+          <li><a href="https://www.linkedin.com/in/goerkemtekin/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/gorkemttekin" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="Goerkem_Tekin_Resume.pdf" download="Görkem_Tekin_Resume.pdf">CV ↓</a></li>
+          <li class="muted">Dresden, <span data-i18n="contact.country">Germany</span></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">© 2026 Görkem Tekin</footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <script src="monitor.js"></script>
+  <script src="vignettes.js"></script>
+</body>
 </html>
