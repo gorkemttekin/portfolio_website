@@ -61,3 +61,30 @@ document.getElementById("lang-toggle").addEventListener("click", () =>
   setLang(document.documentElement.lang === "de" ? "en" : "de")
 );
 
+
+// --- Logo stripes follow the section in view ---
+(() => {
+  const stripes = document.querySelectorAll(".brand i");
+  const links = document.querySelectorAll(".nav nav a[href^='#']");
+  const sections = ["about", "experience", "projects", "contact"].map((id) => document.getElementById(id));
+
+  function update() {
+    // Active section: the last one whose top has passed the upper third of the viewport.
+    // At the very bottom, contact wins even if it's too short to reach that line.
+    const line = innerHeight / 3;
+    let active = -1;
+    sections.forEach((s, i) => { if (s.getBoundingClientRect().top <= line) active = i; });
+    if (innerHeight + scrollY >= document.documentElement.scrollHeight - 2) active = sections.length - 1;
+    stripes.forEach((el, i) => el.classList.toggle("on", active === -1 || i === active));
+    links.forEach((a, i) => a.classList.toggle("active", i === active));
+  }
+
+  let queued = false;
+  addEventListener("scroll", () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => { queued = false; update(); });
+  }, { passive: true });
+  addEventListener("resize", update);
+  update();
+})();

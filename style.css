@@ -53,8 +53,33 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   height: 64px;
 }
-.logo { font-weight: 600; font-size: 22px; letter-spacing: -0.02em; }
-.logo span { color: var(--orange); }
+/* Logo: the hero's four racing stripes as a mark. Each stripe stands for one section
+   (About, Experience, Projects, Contact); the current section's stripe rises. */
+.logo { display: flex; align-items: center; gap: 12px; font-weight: 600; font-size: 18px; letter-spacing: -0.015em; }
+.brand { display: flex; align-items: flex-end; gap: 3px; height: 22px; }
+.brand i {
+  width: 5px;
+  height: 12px;
+  border-radius: 1px;
+  background: var(--c);
+  opacity: .55;
+  transition: height .45s cubic-bezier(.2, .8, .2, 1), opacity .45s;
+}
+.brand i:nth-child(1) { --c: var(--mustard); }
+.brand i:nth-child(2) { --c: var(--orange); }
+.brand i:nth-child(3) { --c: var(--olive); }
+.brand i:nth-child(4) { --c: var(--blue); }
+.brand i.on { height: 22px; opacity: 1; }
+/* Hover: a short staggered wave through the stripes */
+.logo:hover .brand i { animation: brand-wave .6s ease-in-out; }
+.logo:hover .brand i:nth-child(2) { animation-delay: .07s; }
+.logo:hover .brand i:nth-child(3) { animation-delay: .14s; }
+.logo:hover .brand i:nth-child(4) { animation-delay: .21s; }
+@keyframes brand-wave { 50% { transform: scaleY(1.35); opacity: 1; } }
+.brand i { transform-origin: bottom; }
+.logo-name { transition: color .2s; }
+.logo:hover .logo-name { color: var(--mustard); }
+.nav nav a.active { color: var(--text); }
 .nav nav { display: flex; align-items: center; gap: 28px; font-size: 16px; }
 .nav nav a { color: var(--muted); transition: color .2s; }
 .nav nav a:hover { color: var(--text); }
@@ -240,11 +265,19 @@ h2 {
   .project.has-vignette { grid-template-columns: 40px minmax(0, 1fr); }
   .vignette { grid-column: 2; width: min(100%, 384px); }
 }
-.mark { display: block; width: 40px; height: 40px; margin-top: 4px; background: var(--c); }
-.mark.circle { border-radius: 50%; }
-.mark.half { height: 20px; margin-top: 24px; border-radius: 20px 20px 0 0; }
-.mark.quarter { border-radius: 40px 0 0 0; }
-.mark.ring { background: none; border: 6px solid var(--c); border-radius: 50%; }
+/* Entry marks: one tile shape for every entry, with an icon for its subject
+   (map, race flag, fingerprint for touch, VR headset) */
+.mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin-top: 4px;
+  border-radius: 10px;
+  background: var(--c);
+  color: var(--bg);
+}
+.mark svg { width: 24px; height: 24px; }
 .project .meta { color: var(--c); font-size: 16px; font-weight: 500; margin: 0 0 6px; }
 .project h3 { font-size: 26px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; margin: 0 0 10px; }
 .project p { color: var(--body); max-width: 36em; margin: 0; }
@@ -291,6 +324,7 @@ h2 {
   .container { padding: 0 16px; }
   .nav nav { gap: 14px; }
   .nav nav a { display: none; }
+  .logo-name { display: none; }
   .hero { min-height: auto; padding-top: 48px; }
   .hero-inner { grid-template-columns: 1fr; gap: 48px; margin-bottom: 56px; }
   .monitor { max-width: 340px; justify-self: center; }
@@ -302,10 +336,8 @@ h2 {
   .about-grid { grid-template-columns: 1fr; gap: 28px; }
   .about-text { font-size: 17px; }
   .project { grid-template-columns: 28px 1fr; gap: 18px; }
-  .mark { width: 28px; height: 28px; }
-  .mark.half { height: 14px; margin-top: 18px; border-radius: 14px 14px 0 0; }
-  .mark.quarter { border-radius: 28px 0 0 0; }
-  .mark.ring { border-width: 5px; }
+  .mark { width: 28px; height: 28px; border-radius: 7px; }
+  .mark svg { width: 18px; height: 18px; }
   .project h3 { font-size: 22px; }
   .project.has-vignette { grid-template-columns: 28px 1fr; }
   .vignette { margin-top: 4px; }
@@ -313,4 +345,6 @@ h2 {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .brand i { transition: none; }
+  .logo:hover .brand i { animation: none; }
 }
